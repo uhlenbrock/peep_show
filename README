@@ -16,5 +16,7 @@ Example
   # Form View
   <%= submit_to_dirty_preview('Preview', @post) %>
 
+  # Show View or Layout (optional)
+  <%= peep_show_flash %>
 
 Copyright (c) 2008 Bobby Uhlenbrock, released under the MIT license

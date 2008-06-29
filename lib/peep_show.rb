@@ -1,7 +1,7 @@
 module ActionController
   
   class Base
-    
+
     # Example:
     #
     #   # Controller
@@ -11,7 +11,10 @@ module ActionController
     #
     def peep_show(object, options = {})
       @item = object.to_s.camelize.constantize.find(params[:id])
-      params[object].each_pair { |key, value| @item[key] = value } unless params[object].nil?
+      unless params[object].nil?
+        params[object].each_pair { |key, value| @item[key] = value }
+        @show_peep_show_flash = true
+      end
       return @item
     end
     

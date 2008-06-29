@@ -26,4 +26,16 @@ module PeepShowMacrosHelper
     link_to_function(name, function)
   end
   
+  # Displays a notice when dirty objects are shown in a view
+  def peep_show_flash
+    if @show_peep_show_flash
+      style = 'clear:both;background-color:pink;padding:10px 0; color:black;position:absolute;top:0;left:0;width:100%;text-align:center'
+      content_tag :div, :id => 'peep_show_flash', :style => style do
+        "<strong>This is just a preview</strong>: if everything looks good, don't forget to go back to the editor and save your changes. " + 
+        link_to_function('Back to editor', 'window.opener.focus();', :style => 'font-weight:bold;color:white;padding:5px;background-color:#ff6d81;text-decoration:none') +  
+        link_to_function('X', '$("peep_show_flash").fade()', :style => 'font-weight:bold;color:white;padding:5px;background-color:#ff6d81;text-decoration:none;margin:0 5px')
+      end
+    end
+  end
+  
 end
